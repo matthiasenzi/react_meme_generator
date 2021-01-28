@@ -10,6 +10,7 @@ export default function MemeGenerator() {
       <h1>REACT MEME GENERATOR</h1>
       <p>This meme generator allows you to create memes and put text on it.</p>
       <p>Please enter your text below:</p>
+      <br />
       <label>
         Top Text:{' '}
         <input
@@ -31,10 +32,15 @@ export default function MemeGenerator() {
           value={bottomText}
         />
       </label>
-      <h2>Text Preview</h2>
-      <b>Top Text:</b> {topText}
       <br />
-      <b>Bottom Text:</b> {bottomText}
+      <br />
+      <br />
+
+      <img
+      // Show an image with the inserted text on it.
+        src={`https://api.memegen.link/images/buzz/${topText}/${bottomText}.png`}
+        alt=" "
+      />
       <br />
     </div>
   );
