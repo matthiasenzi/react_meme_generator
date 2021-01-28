@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 export default function MemeGenerator() {
   // Meme-Text via controlled Components with State variables
+
   const [topText, settopText] = useState('');
   const [bottomText, setbottomText] = useState('');
 
@@ -34,10 +35,9 @@ export default function MemeGenerator() {
       </label>
       <br />
       <br />
-      <br />
 
       <img
-      // Show an image with the inserted text on it.
+        // Show an image with the inserted text on it.
         src={`https://api.memegen.link/images/buzz/${topText}/${bottomText}.png`}
         alt=" "
       />
