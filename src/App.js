@@ -5,6 +5,7 @@ export default function MemeGenerator() {
 
   const [topText, settopText] = useState('');
   const [bottomText, setbottomText] = useState('');
+  const [count, setCount] = useState(0);
 
   return (
     <div>
@@ -34,8 +35,15 @@ export default function MemeGenerator() {
         />
       </label>
       <br />
+      <button
+        onClick={() => {
+          setCount(count + 1); // Button to click for meme.
+          console.log('count', count);
+        }}
+      >
+        New Meme!
+      </button>
       <br />
-
       <img
         // Show an image with the inserted text on it.
         src={`https://api.memegen.link/images/buzz/${topText}/${bottomText}.png`}
