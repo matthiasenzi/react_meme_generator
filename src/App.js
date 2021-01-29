@@ -1,11 +1,15 @@
 import { useState } from 'react';
 
 export default function MemeGenerator() {
-  // Meme-Text via controlled Components with State variables
+  // Meme-Text via controlled Components with State variables´
 
-  const [topText, settopText] = useState('');
-  const [bottomText, setbottomText] = useState('');
-  const [count, setCount] = useState(0);
+  var [imageKey, setImageKey] = useState('buzz');
+  const [topText, setTopText] = useState('');
+  const [bottomText, setBottomText] = useState('');
+
+  // fetch(https://api.memegen.link/templates/')
+  //   .then((response) => response.json())
+  //   .then((data) => console.log(data));
 
   return (
     <div>
@@ -18,7 +22,7 @@ export default function MemeGenerator() {
         <input
           // Controlled Component Top Text: onChange of form element
           onChange={(event) => {
-            settopText(event.currentTarget.value);
+            setTopText(event.currentTarget.value);
           }}
           value={topText}
         />
@@ -29,7 +33,7 @@ export default function MemeGenerator() {
         <input
           // Controlled Component Bottom Text: onChange of form element
           onChange={(event) => {
-            setbottomText(event.currentTarget.value);
+            setBottomText(event.currentTarget.value);
           }}
           value={bottomText}
         />
@@ -37,8 +41,8 @@ export default function MemeGenerator() {
       <br />
       <button
         onClick={() => {
-          setCount(count + 1); // Button to click for meme.
-          console.log('count', count);
+          setImageKey('bender',); // Button to click for meme.
+          console.log('bender', imageKey);
         }}
       >
         New Meme!
@@ -46,7 +50,7 @@ export default function MemeGenerator() {
       <br />
       <img
         // Show an image with the inserted text on it.
-        src={`https://api.memegen.link/images/buzz/${topText}/${bottomText}.png`}
+        src={`https://api.memegen.link/images/${imageKey}/${topText}/${bottomText}.png`}
         alt=" "
       />
       <br />
