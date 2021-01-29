@@ -7,9 +7,25 @@ export default function MemeGenerator() {
   const [topText, setTopText] = useState('');
   const [bottomText, setBottomText] = useState('');
 
-  // fetch(https://api.memegen.link/templates/')
-  //   .then((response) => response.json())
-  //   .then((data) => console.log(data));
+  fetch('https://api.memegen.link/templates/')
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data[0].key);
+
+      let keys;
+
+      keys = data.map((element) => {
+        console.log('test', element.key);
+
+        return element.key;
+      });
+      console.log(keys);
+    });
+
+  function handleClick() {
+    setImageKey('bender'); // Button to click for meme.
+    console.log('bender', imageKey);
+  }
 
   return (
     <div>
@@ -39,14 +55,7 @@ export default function MemeGenerator() {
         />
       </label>
       <br />
-      <button
-        onClick={() => {
-          setImageKey('bender',); // Button to click for meme.
-          console.log('bender', imageKey);
-        }}
-      >
-        New Meme!
-      </button>
+      <button onClick={handleClick}>New Meme!</button>
       <br />
       <img
         // Show an image with the inserted text on it.
